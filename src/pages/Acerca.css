@@ -1,0 +1,336 @@
+/**
+ * Acerca.css
+ * Estilos para la página informativa del festival.
+ * Incluye hero con gradiente animado, secciones de contenido,
+ * tarjetas de razones, lista de reglas, FAQ acordeón y CTA final.
+ */
+
+.acerca-container {
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hero */
+.acerca-hero {
+  position: relative;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    #0D1B2A 0%,
+    #1A3A2A 25%,
+    #0D2A1A 50%,
+    #2D1B5E 75%,
+    #0D1B2A 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Partículas simuladas con pseudo-elemento */
+.acerca-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(245, 200, 66, 0.6) 1px, transparent 1px),
+    radial-gradient(circle, rgba(127, 255, 158, 0.4) 1px, transparent 1px),
+    radial-gradient(circle, rgba(245, 200, 66, 0.3) 1px, transparent 1px);
+  background-size: 120px 120px, 80px 80px, 200px 200px;
+  background-position: 10px 10px, 40px 60px, 90px 30px;
+  animation: sparkle 4s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes sparkle {
+  0% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+.acerca-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 27, 42, 0.4);
+}
+
+.acerca-hero__contenido {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 3rem 2rem;
+}
+
+.acerca-hero__etiqueta {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-highlight);
+  opacity: 0.9;
+}
+
+.acerca-hero__titulo {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--color-cream);
+  line-height: 1.1;
+}
+
+.acerca-hero__titulo span {
+  color: var(--color-accent);
+}
+
+.acerca-hero__fecha {
+  font-size: 1rem;
+  color: rgba(232, 225, 199, 0.7);
+}
+
+.acerca-hero__datos {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 1rem;
+}
+
+.acerca-hero__dato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--color-cream);
+}
+
+.acerca-hero__dato-valor {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.acerca-hero__dato-label {
+  font-size: 0.78rem;
+  color: rgba(232, 225, 199, 0.6);
+  text-align: center;
+}
+
+/* Body */
+.acerca-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  width: 100%;
+}
+
+/* Secciones */
+.acerca-seccion {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 3rem;
+}
+
+.acerca-seccion:last-child {
+  border-bottom: none;
+}
+
+.acerca-seccion__titulo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-cream);
+}
+
+.acerca-seccion__texto {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: rgba(232, 225, 199, 0.8);
+}
+
+/* Razones */
+.acerca-razones {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.acerca-razon-card {
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: transform 0.2s;
+}
+
+.acerca-razon-card:hover {
+  transform: translateY(-3px);
+}
+
+.acerca-razon-card__icono {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: rgba(245, 200, 66, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent);
+}
+
+.acerca-razon-card__titulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-cream);
+}
+
+.acerca-razon-card__descripcion {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: rgba(232, 225, 199, 0.7);
+}
+
+/* Reglas */
+.acerca-reglas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: var(--color-purple);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.acerca-regla-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: rgba(232, 225, 199, 0.85);
+  line-height: 1.6;
+}
+
+.acerca-regla-item__icono {
+  color: var(--color-highlight);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* FAQ */
+.acerca-faq {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.acerca-faq__item {
+  background: var(--color-purple);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.acerca-faq__item.abierto {
+  border-color: rgba(245, 200, 66, 0.3);
+}
+
+.acerca-faq__pregunta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: none;
+  border: none;
+  color: var(--color-cream);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  gap: 1rem;
+}
+
+.faq-chevron {
+  flex-shrink: 0;
+  color: var(--color-accent);
+  transition: transform 0.25s;
+}
+
+.faq-chevron.rotado {
+  transform: rotate(180deg);
+}
+
+.acerca-faq__respuesta {
+  padding: 0 1.25rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: rgba(232, 225, 199, 0.75);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 0.75rem;
+}
+
+/* CTA */
+.acerca-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, var(--color-bg-secondary), var(--color-purple));
+  border-radius: var(--radius-lg);
+}
+
+.acerca-cta__titulo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-cream);
+}
+
+.acerca-cta__texto {
+  font-size: 0.95rem;
+  color: rgba(232, 225, 199, 0.7);
+  max-width: 480px;
+}
+
+.acerca-cta__btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.9rem 2.5rem;
+  background: var(--color-accent);
+  color: #1a1a1a;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.acerca-cta__btn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(245, 200, 66, 0.3);
+}

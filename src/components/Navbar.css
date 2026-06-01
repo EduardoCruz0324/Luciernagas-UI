@@ -1,0 +1,51 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2.5rem;
+  background-color: var(--color-bg-primary);
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.navbar__logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.brand-eco {
+  color: var(--color-cream);
+}
+
+.brand-glow {
+  color: var(--color-accent);
+}
+
+.navbar__links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  color: var(--color-cream);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.navbar__links li:hover {
+  color: var(--color-accent);
+}
+
+.navbar__logout {
+  color: var(--color-accent) !important;
+  font-weight: 600;
+}

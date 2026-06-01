@@ -1,0 +1,63 @@
+.home-container {
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+.home-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 3rem 4rem;
+}
+
+/* Festival image */
+.home-festival-img-wrapper {
+  width: 100%;
+  max-width: 420px;
+}
+
+.home-festival-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Description */
+.home-description {
+  max-width: 560px;
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--color-cream);
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* Buttons */
+.home-actions {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.home-btn {
+  padding: 0.9rem 3rem;
+  background-color: var(--color-accent);
+  color: #1a1a1a;
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.home-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(245, 200, 66, 0.3);
+}

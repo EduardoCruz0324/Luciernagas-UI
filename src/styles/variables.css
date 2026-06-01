@@ -1,0 +1,17 @@
+:root {
+  /* Paleta EcoGlow */
+  --color-bg-primary: #0D1B2A;
+  --color-bg-secondary: #1A3A2A;
+  --color-accent: #F5C842;
+  --color-highlight: #7FFF9E;
+  --color-purple: #2D1B5E;
+  --color-cream: #E8E1C7;
+
+  /* Tipografía */
+  --font-main: 'Poppins', sans-serif;
+
+  /* Espaciado */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+}

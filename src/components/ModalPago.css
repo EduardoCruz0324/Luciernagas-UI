@@ -1,0 +1,186 @@
+/**
+ * ModalPago.css
+ * Estilos para el modal de proceso de pago.
+ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+.modal-pago {
+  background: var(--color-bg-primary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Header */
+.modal-pago__header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal-pago__header-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1a1a;
+  flex-shrink: 0;
+}
+
+.modal-pago__titulo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-cream);
+}
+
+.modal-pago__subtitulo {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* Resumen */
+.modal-pago__resumen {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: rgba(232, 225, 199, 0.7);
+}
+
+.modal-pago__resumen span {
+  font-weight: 600;
+  color: var(--color-cream);
+}
+
+/* Form */
+.modal-pago__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.modal-fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.modal-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(232, 225, 199, 0.7);
+}
+
+.modal-input {
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-cream);
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.modal-input::placeholder {
+  color: rgba(232, 225, 199, 0.3);
+}
+
+.modal-input:focus {
+  border-color: var(--color-accent);
+}
+
+.modal-input.error {
+  border-color: #f87171;
+}
+
+.modal-error {
+  font-size: 0.75rem;
+  color: #f87171;
+}
+
+/* Seguridad */
+.modal-pago__seguridad {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: rgba(232, 225, 199, 0.4);
+}
+
+/* Botones */
+.modal-pago__acciones {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.modal-btn-cancelar {
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-cream);
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal-btn-cancelar:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.modal-btn-confirmar {
+  padding: 0.75rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  color: #1a1a1a;
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.modal-btn-confirmar:hover:not(:disabled) {
+  opacity: 0.88;
+}
+
+.modal-btn-confirmar:disabled,
+.modal-btn-cancelar:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

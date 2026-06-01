@@ -1,0 +1,503 @@
+/**
+ * DetalleParque.css
+ * Estilos para la página de detalle de parque.
+ * Layout de dos columnas: info del parque + panel de reserva.
+ */
+
+.detalle-container {
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+.detalle-body {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 2rem;
+  padding: 1.5rem 2rem;
+  flex: 1;
+}
+
+/* Not found */
+.detalle-notfound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 1rem;
+  color: var(--color-cream);
+}
+
+/* Columna izquierda */
+.detalle-izquierda {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.detalle-titulo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-cream);
+}
+
+/* Carrusel */
+.detalle-carrusel {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-bg-secondary);
+}
+
+.detalle-carrusel__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.detalle-carrusel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
+  transition: background 0.2s;
+}
+
+.detalle-carrusel__btn:hover {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.detalle-carrusel__btn--left  { left: 12px; }
+.detalle-carrusel__btn--right { right: 12px; }
+
+.detalle-carrusel__dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 1;
+}
+
+.detalle-carrusel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.detalle-carrusel__dot.activo {
+  background: white;
+}
+
+/* Secciones */
+.detalle-seccion {
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.detalle-seccion__titulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-cream);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Calendario */
+.detalle-calendario {
+  background: rgba(255,255,255,0.04);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+}
+
+.calendario-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.calendario-mes {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-cream);
+}
+
+.calendario-nav {
+  background: none;
+  border: none;
+  color: var(--color-cream);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+}
+
+.calendario-nav:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.calendario-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.calendario-dia-nombre {
+  font-size: 0.72rem;
+  color: rgba(232, 225, 199, 0.5);
+  text-align: center;
+  padding: 0.25rem 0;
+  font-weight: 600;
+}
+
+.calendario-dia {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  cursor: not-allowed;
+  background: transparent;
+  color: rgba(232, 225, 199, 0.3);
+  transition: all 0.15s;
+}
+
+.calendario-dia.vacio {
+  background: transparent;
+  cursor: default;
+  pointer-events: none;
+}
+
+.calendario-dia.disponible {
+  background: rgba(74, 222, 128, 0.15);
+  color: #4ade80;
+  cursor: pointer;
+}
+
+.calendario-dia.disponible:hover {
+  background: rgba(74, 222, 128, 0.3);
+}
+
+.calendario-dia.seleccionado {
+  background: var(--color-accent) !important;
+  color: #1a1a1a !important;
+  font-weight: 700;
+}
+
+.calendario-dia.agotado {
+  color: rgba(232, 225, 199, 0.2);
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+.calendario-leyenda {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: rgba(232, 225, 199, 0.6);
+}
+
+.leyenda-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 4px;
+}
+
+.leyenda-dot.disponible  { background: #4ade80; }
+.leyenda-dot.agotado     { background: rgba(232, 225, 199, 0.2); }
+.leyenda-dot.seleccionado { background: var(--color-accent); }
+
+/* Servicios */
+.detalle-servicios {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.detalle-servicio-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-cream);
+  font-size: 0.75rem;
+  text-align: center;
+  opacity: 0.85;
+}
+
+/* Panel de reserva */
+.detalle-reserva {
+  background-color: var(--color-purple);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 1.5rem;
+  height: fit-content;
+  max-height: calc(100vh - 100px);
+  overflow: hidden;
+}
+
+/* Stepper */
+.reserva-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1.5rem 0;
+  gap: 0;
+}
+
+.reserva-stepper__item {
+  display: flex;
+  align-items: center;
+}
+
+.stepper-circulo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: rgba(255,255,255,0.4);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepper-circulo.activo {
+  border-color: var(--color-cream);
+  color: var(--color-cream);
+  background: rgba(255,255,255,0.1);
+}
+
+.stepper-circulo.completado {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: #1a1a1a;
+}
+
+.stepper-linea {
+  width: 40px;
+  height: 2px;
+  background: rgba(255,255,255,0.15);
+}
+
+/* Contenido del paso */
+.reserva-contenido {
+  flex: 1;
+  padding: 1.25rem 1.5rem;
+  overflow-y: auto;
+}
+
+.reserva-paso__titulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-cream);
+  margin-bottom: 0.4rem;
+}
+
+.reserva-paso__subtitulo {
+  font-size: 0.82rem;
+  color: rgba(232, 225, 199, 0.6);
+  margin-bottom: 1rem;
+}
+
+/* Hospedaje */
+.reserva-hospedaje-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.reserva-hospedaje-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255,255,255,0.15);
+  cursor: pointer;
+  color: var(--color-cream);
+  font-size: 0.9rem;
+  transition: all 0.15s;
+}
+
+.reserva-hospedaje-item:hover {
+  border-color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.05);
+}
+
+.reserva-hospedaje-item.activo {
+  border-color: var(--color-accent);
+  background: rgba(245, 200, 66, 0.1);
+}
+
+.reserva-detalles-btn {
+  background: var(--color-accent);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.3rem 0.75rem;
+  font-family: var(--font-main);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  cursor: pointer;
+}
+
+/* Botón siguiente */
+.reserva-siguiente-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--color-accent);
+  color: #1a1a1a;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: opacity 0.2s;
+  margin-top: 1rem;
+}
+
+.reserva-siguiente-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.reserva-siguiente-btn:not(:disabled):hover {
+  opacity: 0.88;
+}
+
+/* Visitantes */
+.reserva-visitantes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1rem 0;
+}
+
+.visitantes-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent);
+  background: transparent;
+  color: var(--color-accent);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.visitantes-btn:hover {
+  background: var(--color-accent);
+  color: #1a1a1a;
+}
+
+.visitantes-num {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-cream);
+}
+
+/* Resumen */
+.reserva-resumen {
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.88rem;
+  color: rgba(232, 225, 199, 0.8);
+  margin-bottom: 1rem;
+}
+
+.reserva-resumen span {
+  font-weight: 600;
+  color: var(--color-cream);
+}
+
+.reserva-resumen__total {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-accent) !important;
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Confirmar */
+.reserva-confirmar-btn {
+  width: 100%;
+  padding: 0.85rem;
+  background: var(--color-accent);
+  color: #1a1a1a;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-main);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.reserva-confirmar-btn:hover {
+  opacity: 0.88;
+}
+
+/* Subtotal fijo */
+.reserva-subtotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--color-accent);
+  color: #1a1a1a;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
