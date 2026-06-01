@@ -13,7 +13,7 @@ y realizar reservaciones de forma sencilla y centralizada.
 | Nombre | Rol |
 |---|---|
 | Fernanda Ixchel Velazquez Vilchis | Líder del Proyecto |
-| Hazel Torres Nava | Diseñadora UX/UI |
+| Hazel Torres Nava | Diseñador UX/UI |
 | José Eduardo Cruz Campos | Desarrollador Frontend |
 | Zianya Nenetzi Trujillo Beltrán | Tester |
 | Daniel Flores Doniz | Apoyo Frontend |
